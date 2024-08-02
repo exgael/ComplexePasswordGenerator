@@ -59,16 +59,15 @@ function copyPassword() {
     navigator.clipboard.writeText(passwordText).then(() => {
         alert('Password copied to clipboard!');
     }).catch(err => {
-        console.error('Failed to copy: ', err);
+        console.error('Could not copy text: ', err);
     });
 }
 
 /**
- * Updates the length value displayed next to the slider.
+ * Updates the displayed password length value.
  */
 function updateLengthValue() {
-    const length = document.getElementById('length').value;
-    document.getElementById('lengthValue').innerText = length;
+    document.getElementById('lengthValue').innerText = document.getElementById('length').value;
 }
 
 /**
@@ -93,6 +92,13 @@ function increaseLength() {
     }
 }
 
+/**
+ * Toggles between light and dark themes.
+ */
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+}
+
 // Add event listeners after the DOM content is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('generateBtn').addEventListener('click', generatePassword);
@@ -100,23 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('length').addEventListener('input', updateLengthValue);
     document.getElementById('decreaseLength').addEventListener('click', decreaseLength);
     document.getElementById('increaseLength').addEventListener('click', increaseLength);
+    document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
     updateLengthValue(); // Initial update of the displayed length value
-
-
-    try {
-        let app = firebase.app();
-        let features = [
-          'auth', 
-          'database', 
-          'firestore',
-          'functions',
-          'messaging', 
-          'storage', 
-          'analytics', 
-          'remoteConfig',
-          'performance',
-        ].filter(feature => typeof app[feature] === 'function');
-      } catch (e) {
-        console.error(e);
-      }
 });

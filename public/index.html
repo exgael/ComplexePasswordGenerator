@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complex Password Generator</title>
-
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#007BFF">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.12.5/firebase-app-compat.js"></script>
-
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="styles.css">
     <!-- Content Security Policy to prevent XSS -->
@@ -36,29 +38,32 @@
 <body>
     <div class="container">
         <h1>Complex Password Generator</h1>
-        <div class="option">
-            <label for="length">Password Length:</label>
-            <div class="slider-container">
-                <button id="decreaseLength">-</button>
-                <input type="range" id="length" name="length" min="6" max="120" value="16">
-                <button id="increaseLength">+</button>
-                <span id="lengthValue">16</span>
+        <button id="themeToggleBtn">Toggle Theme</button>
+        <div class="options-container">
+            <div class="option">
+                <label for="length">Password Length:</label>
+                <div class="slider-container">
+                    <button id="decreaseLength">-</button>
+                    <input type="range" id="length" name="length" min="6" max="120" value="16">
+                    <button id="increaseLength">+</button>
+                    <span id="lengthValue">16</span>
+                </div>
             </div>
-        </div>
-        <div class="option">
-            <label><input type="checkbox" id="includeSpecial" checked> Include Special Characters</label>
-        </div>
-        <div class="option">
-            <label><input type="checkbox" id="includeVerySpecial"> Include Very Special Characters</label>
-        </div>
-        <div class="option">
-            <label><input type="checkbox" id="includeNumbers" checked> Include Numbers</label>
-        </div>
-        <div class="option">
-            <label><input type="checkbox" id="includeUppercase" checked> Include Uppercase Letters</label>
-        </div>
-        <div class="option">
-            <label><input type="checkbox" id="includeLowercase" checked> Include Lowercase Letters</label>
+            <div class="option">
+                <label><input type="checkbox" id="includeSpecial" checked> Include Special Characters</label>
+            </div>
+            <div class="option">
+                <label><input type="checkbox" id="includeVerySpecial"> Include Very Special Characters</label>
+            </div>
+            <div class="option">
+                <label><input type="checkbox" id="includeNumbers" checked> Include Numbers</label>
+            </div>
+            <div class="option">
+                <label><input type="checkbox" id="includeUppercase" checked> Include Uppercase Letters</label>
+            </div>
+            <div class="option">
+                <label><input type="checkbox" id="includeLowercase" checked> Include Lowercase Letters</label>
+            </div>
         </div>
         <button id="generateBtn">Generate Password</button>
         <button id="copyBtn">Copy Password</button>
@@ -66,7 +71,15 @@
             <p id="password"></p>
         </div>
     </div>
-    <!-- Link to the external JavaScript file -->
     <script src="scripts.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(error) {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+        }
+    </script>
 </body>
 </html>
