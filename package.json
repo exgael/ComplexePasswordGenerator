@@ -1,0 +1,12 @@
+{
+    "name": "complexe-password-generator",
+    "version": "1.0.0",
+    "description": "A complex password generator",
+    "main": "index.js",
+    "scripts": {
+      "build": "echo 'No build step required for static files' && exit 0"
+    },
+    "keywords": ["password", "generator"],
+    "author": "",
+    "license": "ISC"
+  }
