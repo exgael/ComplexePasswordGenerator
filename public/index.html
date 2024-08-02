@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Password Generator</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.12.5/firebase-app-compat.js"></script>
+
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Content Security Policy to prevent XSS -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
+    <!-- HSTS to enforce HTTPS -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <!-- include only the Firebase features as you need -->
+    <!-- 
+    <script defer src="/__/firebase/10.12.5/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/10.12.5/firebase-performance-compat.js"></script> 
+    -->
+
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=false"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Complex Password Generator</h1>
+        <div class="option">
+            <label for="length">Password Length:</label>
+            <div class="slider-container">
+                <button id="decreaseLength">-</button>
+                <input type="range" id="length" name="length" min="6" max="120" value="16">
+                <button id="increaseLength">+</button>
+                <span id="lengthValue">16</span>
+            </div>
+        </div>
+        <div class="option">
+            <label><input type="checkbox" id="includeSpecial" checked> Include Special Characters</label>
+        </div>
+        <div class="option">
+            <label><input type="checkbox" id="includeVerySpecial"> Include Very Special Characters</label>
+        </div>
+        <div class="option">
+            <label><input type="checkbox" id="includeNumbers" checked> Include Numbers</label>
+        </div>
+        <div class="option">
+            <label><input type="checkbox" id="includeUppercase" checked> Include Uppercase Letters</label>
+        </div>
+        <div class="option">
+            <label><input type="checkbox" id="includeLowercase" checked> Include Lowercase Letters</label>
+        </div>
+        <button id="generateBtn">Generate Password</button>
+        <button id="copyBtn">Copy Password</button>
+        <div class="output" id="output">
+            <p id="password"></p>
+        </div>
+    </div>
+    <!-- Link to the external JavaScript file -->
+    <script src="scripts.js"></script>
+</body>
+</html>

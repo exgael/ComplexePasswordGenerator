@@ -1,0 +1,78 @@
+/* CSS for the password generator webpage */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none; /* Disable text selection for WebKit-based browsers */
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none; /* Disable text selection for WebKit-based browsers */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.option {
+    margin: 10px 0;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+}
+
+.slider-container button {
+    margin: 0 10px;
+}
+
+.output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #e9e9e9;
+    word-break: break-all;
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none; /* Disable text selection for WebKit-based browsers */
+    position: relative;
+}
+
+.output p {
+    margin: 0;
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none; /* Disable text selection for WebKit-based browsers */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media print {
+    body {
+        visibility: hidden; /* Hide the body during print to prevent screenshots */
+    }
+}
